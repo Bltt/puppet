@@ -1,0 +1,26 @@
+---
+- name: master
+  box: centos/7
+  cpus: 1
+  memory: 4096 
+  public_ip: 192.168.1.100
+  hostname: markpuppetmaster
+  package_manager: yum
+  forwarded_ports:
+  - guest: 8080
+    host: 8080
+  packages:
+  - wget
+  - unzip
+  - git
+- name: agent-cent
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  public_ip: 192.168.1.101
+  forwarded_ports:
+  - guest: 8080
+    host: 8081
+  hostname: markpuppetcent
+  package_manager: yum
+...
